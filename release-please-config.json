@@ -11,6 +11,7 @@
   "versioning": "prerelease",
   "versioning-strategy": "prerelease",
   "versioning-type": "prerelease",
+  "prerelease-type": "beta",
   "packages": {
     "packages/test-a": {
       "initial-version": "0.0.0"
