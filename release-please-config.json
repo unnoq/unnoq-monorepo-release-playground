@@ -17,5 +17,6 @@
       "initial-version": "0.0.0"
     }
   },
+  "bump-minor-pre-major": true,
   "always-update": true
 }
