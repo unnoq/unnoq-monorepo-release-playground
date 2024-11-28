@@ -1,0 +1,63 @@
+---
+import 'styles/globals.css'
+
+import Typewriter from 'components/typewriter.astro'
+import DefaultLayout from '../layouts/default-layout.astro'
+
+const links = [
+  {
+    name: 'Email',
+    href: 'mailto:contact@unnoq.com',
+  },
+  {
+    name: 'Twitter',
+    href: 'https://x.com/unnoqcom',
+  },
+  {
+    name: 'Bluesky',
+    href: 'https://bsky.app/profile/unnoq.com',
+  },
+  {
+    name: 'Github',
+    href: 'https://github.com/unnoq',
+  },
+  {
+    name: 'Discord',
+    href: 'https://discord.gg/TXEbwRBvQn',
+  },
+]
+---
+
+<DefaultLayout>
+  <div class="h-screen flex flex-col justify-center">
+    <header class="flex items-center gap-2">
+      <span class="tracking-wide text-[15px]">
+        <Typewriter id="unnoq-typewriter" words={['unnoq']} />
+      </span>
+    </header>
+
+    <div class="mt-4">
+      <h1>
+        <strong class="font-bold"> OSS & Indie Hacker </strong> 🚀 working on
+        <a href="https://orpc.unnoq.com" class="hover:text-gray-200 transition">
+          [<strong class="font-bold">oRPC</strong> - End-to-end typesafe APIs builder]
+        </a>
+      </h1>
+    </div>
+
+    <div class="border-t border-gray-700 border-dashed my-8"></div>
+
+    <div class="flex items-center gap-2 pb-8">
+      {
+        links.map((link, i) => (
+          <div>
+            <a href={link.href} class="hover:text-gray-200 transition">
+              {link.name}
+            </a>
+            {i === links.length - 1 ? null : <span>&middot;</span>}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</DefaultLayout>

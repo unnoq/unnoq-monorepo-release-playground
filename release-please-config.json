@@ -1,0 +1,16 @@
+{
+  "plugins": [
+    {
+      "type": "node-workspace",
+      "updatePeerDependencies": true
+    }
+  ],
+  "packages": {
+    "packages/test-a": {},
+    "packages/test-b": {},
+    "packages/test-c": {}
+  },
+  "release-type": "node",
+  "bump-minor-pre-major": true,
+  "bump-patch-for-minor-pre-major": true
+}

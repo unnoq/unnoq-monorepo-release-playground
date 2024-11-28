@@ -1,0 +1,23 @@
+---
+interface Props {
+  id: string
+  words: string[]
+}
+
+const { id, words } = Astro.props
+---
+
+<span id={id}>{words[0] ?? ''}</span>
+
+<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+
+<script is:inline define:vars={{ id, words }}>
+  window.addEventListener('load', () => {
+    // eslint-disable-next-line no-new
+    new Typewriter(`#${id}`, {
+      strings: words,
+      autoStart: true,
+      loop: true,
+    })
+  })
+</script>
