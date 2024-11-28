@@ -8,18 +8,21 @@
   ],
   "prerelease": true,
   "versioning": "prerelease",
-  "versioning-strategy": "prerelease",
-  "versioning-type": "prerelease",
-  "prerelease-type": "beta",
   "packages": {
     "packages/test-a": {
-      "initial-version": "0.0.0"
+      "initial-version": "0.0.0",
+      "prerelease": true,
+      "versioning": "prerelease"
     },
     "packages/test-b": {
-      "initial-version": "0.0.0"
+      "initial-version": "0.0.0",
+      "prerelease": true,
+      "versioning": "prerelease"
     },
     "packages/test-c": {
-      "initial-version": "0.0.0"
+      "initial-version": "0.0.0",
+      "prerelease": true,
+      "versioning": "prerelease"
     }
   },
   "bump-minor-pre-major": true,
