@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0](https://github.com/unnoq/unnoq-monorepo-release-playground/compare/test-c-v0.0.2...test-c-v0.1.0) (2024-11-28)
+
+
+### Features
+
+* test-2224 ([#4](https://github.com/unnoq/unnoq-monorepo-release-playground/issues/4)) ([df9b2e3](https://github.com/unnoq/unnoq-monorepo-release-playground/commit/df9b2e3440e023b4406777a08ba5735153c265ff))
+
 ## [0.0.2](https://github.com/unnoq/unnoq-monorepo-release-playground/compare/test-c-v0.0.1...test-c-v0.0.2) (2024-11-28)
 
 
