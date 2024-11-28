@@ -8,16 +8,34 @@
   ],
   "packages": {
     "packages/test-a": {
-      "bump-minor-pre-major": true,
-      "bump-patch-for-minor-pre-major": true
+      "changelog-path": "CHANGELOG.md",
+      "release-type": "node",
+      "prerelease-type": "rc",
+      "bump-minor-pre-major": false,
+      "bump-patch-for-minor-pre-major": false,
+      "draft": false,
+      "prerelease": true,
+      "versioning": "prerelease"
     },
     "packages/test-b": {
-      "bump-minor-pre-major": true,
-      "bump-patch-for-minor-pre-major": true
+      "changelog-path": "CHANGELOG.md",
+      "release-type": "node",
+      "prerelease-type": "rc",
+      "bump-minor-pre-major": false,
+      "bump-patch-for-minor-pre-major": false,
+      "draft": false,
+      "prerelease": true,
+      "versioning": "prerelease"
     },
     "packages/test-c": {
-      "bump-minor-pre-major": true,
-      "bump-patch-for-minor-pre-major": true
+      "changelog-path": "CHANGELOG.md",
+      "release-type": "node",
+      "prerelease-type": "rc",
+      "bump-minor-pre-major": false,
+      "bump-patch-for-minor-pre-major": false,
+      "draft": false,
+      "prerelease": true,
+      "versioning": "prerelease"
     }
   }
 }
