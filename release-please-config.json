@@ -9,6 +9,8 @@
   ],
   "prerelease": true,
   "versioning": "prerelease",
+  "versioning-strategy": "prerelease",
+  "versioning-type": "prerelease",
   "packages": {
     "packages/test-a": {
       "initial-version": "0.0.0"
