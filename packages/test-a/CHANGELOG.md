@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.0](https://github.com/unnoq/unnoq-monorepo-release-playground/compare/test-a-v0.1.1...test-a-v0.2.0) (2024-11-28)
+
+
+### Features
+
+* a3 ([317ff50](https://github.com/unnoq/unnoq-monorepo-release-playground/commit/317ff5042e5c1851ff283454c3a424fe5d215e05))
+* hehehe ([#9](https://github.com/unnoq/unnoq-monorepo-release-playground/issues/9)) ([2f72ad4](https://github.com/unnoq/unnoq-monorepo-release-playground/commit/2f72ad46fbb46bf7479d67f1d4d70d9c2686831e))
+
 ## [0.1.1](https://github.com/unnoq/unnoq-monorepo-release-playground/compare/test-a-v0.1.0...test-a-v0.1.1) (2024-11-28)
 
 
