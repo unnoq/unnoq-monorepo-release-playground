@@ -6,7 +6,6 @@
       "updatePeerDependencies": true
     }
   ],
-  "prerelease": true,
   "packages": {
     "packages/test-a": {
       "bump-minor-pre-major": true,
