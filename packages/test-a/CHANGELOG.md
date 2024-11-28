@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/unnoq/unnoq-monorepo-release-playground/compare/test-a-v0.2.0...test-a-v0.2.1) (2024-11-28)
+
+
+### Performance Improvements
+
+* hehe ([55c546c](https://github.com/unnoq/unnoq-monorepo-release-playground/commit/55c546cd9e42964add696cc9592f98f59802f8ad))
+
 ## [0.2.0](https://github.com/unnoq/unnoq-monorepo-release-playground/compare/test-a-v0.1.1...test-a-v0.2.0) (2024-11-28)
 
 
