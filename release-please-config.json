@@ -16,5 +16,6 @@
     "packages/test-c": {
       "initial-version": "0.0.0"
     }
-  }
+  },
+  "always-update": true
 }
