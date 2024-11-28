@@ -3,8 +3,7 @@
   "plugins": [
     {
       "type": "node-workspace",
-      "updatePeerDependencies": true,
-      "updateAllPackages": true
+      "updatePeerDependencies": true
     }
   ],
   "prerelease": true,
