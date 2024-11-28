@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/unnoq/unnoq-monorepo-release-playground/compare/test-a-v0.1.0...test-a-v0.1.1) (2024-11-28)
+
+
+### Bug Fixes
+
+* error-test-a-3 ([9ea90a7](https://github.com/unnoq/unnoq-monorepo-release-playground/commit/9ea90a791aacc4c643d4c7dd8e5473efdbfbac4a))
+
 ## 0.1.0 (2024-11-28)
 
 
