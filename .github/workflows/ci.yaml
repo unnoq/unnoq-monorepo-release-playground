@@ -9,6 +9,10 @@ jobs:
     permissions:
       id-token: write
     steps:
+      - uses: googleapis/release-please-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - uses: actions/checkout@v4
 
       - uses: pnpm/action-setup@v4
