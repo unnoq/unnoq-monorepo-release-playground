@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/unnoq/unnoq-monorepo-release-playground/compare/test-b-v0.1.1...test-b-v0.2.0) (2024-11-29)
+
+
+### Features
+
+* new feat ([2d256c7](https://github.com/unnoq/unnoq-monorepo-release-playground/commit/2d256c7549215949687fb6f5afc33f2e8cb7ce00))
+
 ## [0.1.1](https://github.com/unnoq/unnoq-monorepo-release-playground/compare/test-b-v0.1.0...test-b-v0.1.1) (2024-11-29)
 
 
