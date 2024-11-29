@@ -1,3 +1,13 @@
+## 4.0.0-alpha.1 (2024-11-29)
+
+### 🚀 Features
+
+- ccc ([d700d6d](https://github.com/unnoq/unnoq-monorepo-release-playground/commit/d700d6d))
+
+### ❤️ Thank You
+
+- unnoq — oss/acc @unnoq
+
 ## 4.0.0-alpha.0 (2024-11-29)
 
 ### 🚀 Features
