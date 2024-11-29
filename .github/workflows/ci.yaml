@@ -28,15 +28,11 @@ jobs:
       - run: pnpm build:packages
         if: ${{ steps.release-please.outputs.release_created }}
 
-      - run: pnpm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
-        if: ${{ steps.release-please.outputs.release_created }}
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - run: pnpm publish:packages
         if: ${{ steps.release-please.outputs.release_created }}
         env:
           NPM_CONFIG_PROVENANCE: true
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   publish-commit:
     runs-on: ubuntu-latest
