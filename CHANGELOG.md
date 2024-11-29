@@ -1,3 +1,13 @@
+## 3.0.0-1 (2024-11-29)
+
+### 🚀 Features
+
+- hacking ([9c37e2f](https://github.com/unnoq/unnoq-monorepo-release-playground/commit/9c37e2f))
+
+### ❤️ Thank You
+
+- unnoq — oss/acc @unnoq
+
 ## 3.0.0-0 (2024-11-29)
 
 This was a version bump only, there were no code changes.
