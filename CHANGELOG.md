@@ -1,3 +1,14 @@
+## 4.0.1 (2024-11-29)
+
+### 🔥 Performance
+
+- pef ([067c483](https://github.com/unnoq/unnoq-monorepo-release-playground/commit/067c483))
+- ccc ([ead89bd](https://github.com/unnoq/unnoq-monorepo-release-playground/commit/ead89bd))
+
+### ❤️ Thank You
+
+- unnoq — oss/acc @unnoq
+
 # 4.0.0 (2024-11-29)
 
 ### 🚀 Features
