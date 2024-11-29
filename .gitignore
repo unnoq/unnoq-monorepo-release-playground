@@ -28,3 +28,7 @@ vitest.config.ts.timestamp-*
 # Common manual ignore files
 *.local
 *.pem
+
+
+.nx/cache
+.nx/workspace-data
