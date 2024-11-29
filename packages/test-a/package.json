@@ -1,7 +1,7 @@
 {
   "name": "@unnoq/test-a",
   "type": "module",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": {
     "name": "unnoq",
     "email": "contact@unnoq.com",
@@ -11,7 +11,7 @@
   "homepage": "https://github.com/unnoq/unnoq",
   "repository": {
     "type": "git",
-    "url": "https://github.com/unnoq/unnoq-monorepo-release-playground",
+    "url": "https://github.com/unnoq/unnoq-monorepo-release-playground.git",
     "directory": "examples/package"
   },
   "keywords": [
