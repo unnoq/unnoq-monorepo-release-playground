@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.3.0](https://github.com/unnoq/unnoq-monorepo-release-playground/compare/test-a-v0.2.1...test-a-v0.3.0) (2024-11-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* more more
+* something broken
+* no more options in ccc
+
+### Styles
+
+* hehe ([e1b4bb1](https://github.com/unnoq/unnoq-monorepo-release-playground/commit/e1b4bb10dec7f2852e5ab69ec50d7b940885aa8f))
+
+
+### Code Refactoring
+
+* hehe ([6a94da9](https://github.com/unnoq/unnoq-monorepo-release-playground/commit/6a94da94cf1560db35f1028e3859b24a7caaca10))
+
+
+### Continuous Integration
+
+* hehe ([f1662f4](https://github.com/unnoq/unnoq-monorepo-release-playground/commit/f1662f48df3ba6289974b41b10c784acc35466ec))
+
 ## [0.2.1](https://github.com/unnoq/unnoq-monorepo-release-playground/compare/test-a-v0.2.0...test-a-v0.2.1) (2024-11-28)
 
 
