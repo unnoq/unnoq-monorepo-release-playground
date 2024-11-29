@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.2.1](https://github.com/unnoq/unnoq-monorepo-release-playground/compare/test-c-v0.2.0...test-c-v0.2.1) (2024-11-29)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @unnoq/test-a bumped to 0.2.0
+
 ## [0.2.0](https://github.com/unnoq/unnoq-monorepo-release-playground/compare/test-c-v0.1.3...test-c-v0.2.0) (2024-11-29)
 
 
