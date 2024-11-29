@@ -1,3 +1,13 @@
+## 4.0.0-alpha.0 (2024-11-29)
+
+### 🚀 Features
+
+- new a ([#17](https://github.com/unnoq/unnoq-monorepo-release-playground/pull/17))
+
+### ❤️ Thank You
+
+- cumazusii
+
 ## 3.0.0-1 (2024-11-29)
 
 ### 🚀 Features
