@@ -6,29 +6,32 @@ jobs:
   publish:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: write
-      pull-requests: write
-
+    permissions: write-all
     steps:
       - uses: googleapis/release-please-action@v4
+        id: release-please
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/checkout@v4
+        if: ${{ steps.release-please.outputs.release_created }}
 
       - uses: pnpm/action-setup@v4
+        if: ${{ steps.release-please.outputs.release_created }}
 
       - run: pnpm i
+        if: ${{ steps.release-please.outputs.release_created }}
 
       - run: pnpm build:packages
+        if: ${{ steps.release-please.outputs.release_created }}
 
       - run: pnpm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
+        if: ${{ steps.release-please.outputs.release_created }}
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - run: pnpm publish:packages
+        if: ${{ steps.release-please.outputs.release_created }}
         env:
           NPM_CONFIG_PROVENANCE: true
 
