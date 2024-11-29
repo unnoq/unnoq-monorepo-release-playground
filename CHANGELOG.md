@@ -1,3 +1,13 @@
+# 4.0.0 (2024-11-29)
+
+### 🚀 Features
+
+- ⚠️  s ([](https://github.com/unnoq/unnoq-monorepo-release-playground/commit/))
+
+### ⚠️  Breaking Changes
+
+- ⚠️  s ([](https://github.com/unnoq/unnoq-monorepo-release-playground/commit/))
+
 ## 4.0.0-alpha.1 (2024-11-29)
 
 ### 🚀 Features
