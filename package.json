@@ -33,6 +33,7 @@
     "eslint": "latest",
     "eslint-plugin-format": "latest",
     "lint-staged": "latest",
+    "release-it": "^17.10.0",
     "simple-git-hooks": "latest",
     "tsup": "latest",
     "tsx": "latest",
