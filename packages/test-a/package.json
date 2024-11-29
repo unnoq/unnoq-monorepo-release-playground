@@ -11,7 +11,7 @@
   "homepage": "https://github.com/unnoq/unnoq",
   "repository": {
     "type": "git",
-    "url": "https://github.com/unnoq/unnoq.git",
+    "url": "https://github.com/unnoq/unnoq-monorepo-release-playground",
     "directory": "examples/package"
   },
   "keywords": [
