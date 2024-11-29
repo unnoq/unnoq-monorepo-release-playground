@@ -25,13 +25,16 @@
     "conventionalCommits": {
       "types": {
         "feat": {
-          "semverBump": "minor"
+          "semverBump": "minor",
+          "changelog": true
         },
         "fix": {
-          "semverBump": "patch"
+          "semverBump": "patch",
+          "changelog": true
         },
         "perf": {
-          "semverBump": "patch"
+          "semverBump": "patch",
+          "changelog": true
         }
       }
     }
