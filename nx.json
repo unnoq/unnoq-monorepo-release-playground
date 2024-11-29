@@ -21,6 +21,19 @@
         }
       }
     },
-    "versionPlans": true
+    "versionPlans": true,
+    "conventionalCommits": {
+      "types": {
+        "feat": {
+          "semverBump": "minor"
+        },
+        "fix": {
+          "semverBump": "patch"
+        },
+        "perf": {
+          "semverBump": "patch"
+        }
+      }
+    }
   }
 }
