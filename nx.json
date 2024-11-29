@@ -9,6 +9,9 @@
       "generatorOptions": {
         "skipLockFileUpdate": true
       }
+    },
+    "changelog": {
+
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "@unnoq/test-c",
   "type": "module",
-  "version": "0.5.2",
+  "version": "2.0.1",
   "author": {
     "name": "unnoq",
     "email": "contact@unnoq.com",
@@ -49,6 +49,6 @@
     "@unnoq/test-b": "workspace:^"
   },
   "dependencies": {
-    "@unnoq/test-a": "workspace:^"
+    "@unnoq/test-a": "2.0.1"
   }
 }
