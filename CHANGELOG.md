@@ -1,3 +1,14 @@
+# Changelog
+
+## 5.0.1
+
+### &nbsp;&nbsp;&nbsp;Breaking Changes
+
+- Ccc &nbsp;-&nbsp; by **unnoq — oss/acc** [<samp>(c03d0)</samp>](https://github.com/unnoq/unnoq-monorepo-release-playground/commit/c03d007)
+- Perf &nbsp;-&nbsp; by **unnoq — oss/acc** [<samp>(668d1)</samp>](https://github.com/unnoq/unnoq-monorepo-release-playground/commit/668d16b)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/unnoq/unnoq-monorepo-release-playground/compare/v4.0.1...v5.0.0)
+
 ## 4.0.1 (2024-11-29)
 
 ### 🔥 Performance
