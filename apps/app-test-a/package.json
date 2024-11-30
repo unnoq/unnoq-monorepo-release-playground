@@ -2,6 +2,7 @@
   "name": "@unnoq/app-test-a",
   "type": "module",
   "version": "5.0.1",
+  
   "author": {
     "name": "unnoq",
     "email": "contact@unnoq.com",
