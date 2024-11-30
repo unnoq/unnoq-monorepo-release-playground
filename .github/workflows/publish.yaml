@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Version to bump (e.g., 4.0.0, 4.1.0-alpha, 5.0.0-beta.1)'
+        description: 'Version to bump (e.g., 4.0.0, 4.1.0-alpha.0, 5.0.0-beta.1)'
         required: true
         type: string
 
@@ -15,27 +15,25 @@ jobs:
       contents: write
       id-token: write
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - id: determine-tag
+      - id: validate-version
         shell: bash
         run: |
           VERSION="${{ github.event.inputs.version }}"
-          if [[ $VERSION =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z-]+(\..+)?)?$ ]]; then
-            # Check if version contains a pre-release identifier
-            if [[ $VERSION =~ ^[0-9]+\.[0-9]+\.[0-9]+-([0-9A-Za-z-]+)(\..+)?$ ]]; then
-              TAG="${BASH_REMATCH[1]}"
-              echo "publish_tag=--tag $TAG" >> $GITHUB_OUTPUT
-            else
-              # Stable release
-              echo "publish_tag=" >> $GITHUB_OUTPUT
-            fi
+
+          if [[ $VERSION =~ ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(-([a-zA-Z]+)\.(0|[1-9][0-9]*))?$ ]]; then
+            echo "major=${BASH_REMATCH[1]}" >> $GITHUB_OUTPUT
+            echo "minor=${BASH_REMATCH[2]}" >> $GITHUB_OUTPUT
+            echo "patch=${BASH_REMATCH[3]}" >> $GITHUB_OUTPUT
+            echo "tag=${BASH_REMATCH[5]}" >> $GITHUB_OUTPUT
+            echo "number=${BASH_REMATCH[6]}" >> $GITHUB_OUTPUT
           else
-            echo "Invalid version format" >&2
+            echo "INVALID VERSION FORMAT: $VERSION" >&2
             exit 1
           fi
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: pnpm/action-setup@v4
 
@@ -53,9 +51,12 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish Packages
-        run: pnpm --filter='./packages/*' -r publish ${{ steps.determine-tag.outputs.publish_tag }}
-        env:
-          NPM_CONFIG_PROVENANCE: true
+        run: |
+          if [ -n "${{ steps.validate-version.outputs.tag }}" ]; then
+            pnpm --filter='./packages/*' -r publish --tag="${{ steps.validate-version.outputs.tag }}"
+          else
+            pnpm --filter='./packages/*' -r publish
+          fi
 
       - run: pnpm dlx changelogithub
         env:
