@@ -32,7 +32,7 @@ jobs:
 
           if [[ $BUMP =~ ^([a-z]+)|([a-z]+)-([a-z]+)$ ]]; then
             echo "bump=${BASH_REMATCH[1]}${BASH_REMATCH[3]}" >> $GITHUB_OUTPUT
-            echo "tag=${BASH_REMATCH[2]}" >> $GITHUB_OUTPUT
+            echo "preid=${BASH_REMATCH[2]}" >> $GITHUB_OUTPUT
           else
             echo "INVALID BUMP TYPE: $VERSION" >&2
             exit 1
@@ -50,13 +50,13 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - run: pnpm dlx bumpp -r --yes ${{ steps.extract.outputs.bump }} --preid=${{ steps.extract.outputs.tag }}
+      - run: pnpm dlx bumpp -r --yes ${{ steps.extract.outputs.bump }} --preid=${{ steps.extract.outputs.preid }}
 
       - run: pnpm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: pnpm --filter='./packages/*' -r publish --tag="${{ steps.extract.outputs.tag || 'latest' }}"
+      - run: pnpm --filter='./packages/*' -r publish --tag="${{ steps.extract.outputs.preid || 'latest' }}"
 
       - run: pnpm dlx changelogithub
         env:
