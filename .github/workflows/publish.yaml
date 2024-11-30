@@ -27,7 +27,6 @@ jobs:
       id-token: write
     steps:
       - id: extract
-        shell: bash
         run: |
           BUMP="${{ github.event.inputs.bump }}"
 
@@ -47,8 +46,7 @@ jobs:
 
       - run: pnpm install
 
-      - name: Configure Git User
-        run: |
+      - run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
