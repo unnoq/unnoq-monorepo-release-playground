@@ -23,9 +23,10 @@ jobs:
 
       - run: pnpm install
 
-      - run: |
-          git config --global user.name "unnoq"
-          git config --global user.email "contact@unnoq.com"
+      - name: Configure Git User
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Determine Publish Tag
         id: determine-tag
