@@ -1,7 +1,7 @@
 {
   "name": "@unnoq/monorepo",
   "type": "module",
-  "version": "9.2.1",
+  "version": "9.2.2-beta.1",
   "private": true,
   "packageManager": "pnpm@9.12.1",
   "author": {
