@@ -3,10 +3,21 @@ name: Publish Packages
 on:
   workflow_dispatch:
     inputs:
-      version:
-        description: 'Version to bump (e.g., 4.0.0, 4.1.0-alpha.0, 5.0.0-beta.1)'
+      bump:
+        description: Bump type
         required: true
-        type: string
+        type: choice
+        options:
+          - next
+          - patch
+          - minor
+          - major
+          - beta-prepatch
+          - beta-preminor
+          - beta-premajor
+          - alpha-prepatch
+          - alpha-preminor
+          - alpha-premajor
 
 jobs:
   publish:
@@ -15,19 +26,16 @@ jobs:
       contents: write
       id-token: write
     steps:
-      - id: validate-version
+      - id: extract
         shell: bash
         run: |
-          VERSION="${{ github.event.inputs.version }}"
+          BUMP="${{ github.event.inputs.bump }}"
 
-          if [[ $VERSION =~ ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(-([a-zA-Z]+)\.(0|[1-9][0-9]*))?$ ]]; then
-            echo "major=${BASH_REMATCH[1]}" >> $GITHUB_OUTPUT
-            echo "minor=${BASH_REMATCH[2]}" >> $GITHUB_OUTPUT
-            echo "patch=${BASH_REMATCH[3]}" >> $GITHUB_OUTPUT
-            echo "tag=${BASH_REMATCH[5]}" >> $GITHUB_OUTPUT
-            echo "number=${BASH_REMATCH[6]}" >> $GITHUB_OUTPUT
+          if [[ $BUMP =~ ^([a-z]+)|([a-z]+)-([a-z]+)$ ]]; then
+            echo "bump=${BASH_REMATCH[1]}${BASH_REMATCH[3]}" >> $GITHUB_OUTPUT
+            echo "tag=${BASH_REMATCH[2]}" >> $GITHUB_OUTPUT
           else
-            echo "INVALID VERSION FORMAT: $VERSION" >&2
+            echo "INVALID BUMP TYPE: $VERSION" >&2
             exit 1
           fi
 
@@ -44,19 +52,13 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - run: pnpm dlx bumpp -r --yes ${{ github.event.inputs.version }}
+      - run: pnpm dlx bumpp -r --yes ${{ steps.extract.outputs.bump }} --preid=${{ steps.extract.outputs.tag }}
 
       - run: pnpm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish Packages
-        run: |
-          if [ -n "${{ steps.validate-version.outputs.tag }}" ]; then
-            pnpm --filter='./packages/*' -r publish --tag="${{ steps.validate-version.outputs.tag }}"
-          else
-            pnpm --filter='./packages/*' -r publish
-          fi
+      - run: pnpm --filter='./packages/*' -r publish --tag="${{ steps.extract.outputs.tag || 'latest' }}"
 
       - run: pnpm dlx changelogithub
         env:
