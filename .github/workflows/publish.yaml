@@ -33,13 +33,18 @@ jobs:
         shell: bash
         run: |
           VERSION="${{ github.event.inputs.version }}"
-          if [[ $VERSION =~ ^[0-9]+\.[0-9]+\.[0-9]+-([a-zA-Z]+)\.([0-9]+)$ ]]; then
-            # Pre-release version (e.g., 4.1.0-beta.1)
-            TAG="${BASH_REMATCH[1]}"
-            echo "publish_tag=--tag $TAG" >> $GITHUB_OUTPUT
+          if [[ $VERSION =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z]+(\.[0-9]+)?)?$ ]]; then
+            # Check if version contains a pre-release identifier
+            if [[ $VERSION =~ ^[0-9]+\.[0-9]+\.[0-9]+-([a-zA-Z]+)(\.[0-9]+)?$ ]]; then
+              TAG="${BASH_REMATCH[1]}"
+              echo "publish_tag=--tag $TAG" >> $GITHUB_OUTPUT
+            else
+              # Stable release
+              echo "publish_tag=" >> $GITHUB_OUTPUT
+            fi
           else
-            # Stable release
-            echo "publish_tag=" >> $GITHUB_OUTPUT
+            echo "Invalid version format" >&2
+            exit 1
           fi
 
       - run: pnpm dlx bumpp -r --yes ${{ github.event.inputs.version }}
