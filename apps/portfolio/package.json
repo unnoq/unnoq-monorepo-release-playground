@@ -1,7 +1,7 @@
 {
   "name": "@unnoq/portfolio",
   "type": "module",
-  "version": "11.0.0-canary.1",
+  "version": "11.0.0-canary.2",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
