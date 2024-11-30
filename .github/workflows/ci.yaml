@@ -11,29 +11,10 @@ jobs:
       pull-requests: write
       id-token: write
     steps:
-      - uses: googleapis/release-please-action@v4
-        id: release-please
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: actions/checkout@v4
-        if: ${{ steps.release-please.outputs.release_created }}
-
-      - uses: pnpm/action-setup@v4
-        if: ${{ steps.release-please.outputs.release_created }}
-
-      - run: pnpm i
-        if: ${{ steps.release-please.outputs.release_created }}
-
-  publish-commit:
-    runs-on: ubuntu-latest
-    steps:
       - uses: actions/checkout@v4
 
       - uses: pnpm/action-setup@v4
 
-      - run: pnpm i
-
-      - run: pnpm build:packages
-
-      - run: pnpm publish:packages:commit
+      - run: npx changelogithub
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
