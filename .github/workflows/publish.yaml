@@ -12,9 +12,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-      packages: write
-
+      id-token: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -42,15 +40,17 @@ jobs:
             echo "publish_tag=" >> $GITHUB_OUTPUT
           fi
 
-      - name: Bump Version
-        run: pnpm dlx bumpp -r --yes ${{ github.event.inputs.version }}
+      - run: pnpm dlx bumpp -r --yes ${{ github.event.inputs.version }}
+
+      - run: pnpm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish Packages
         run: pnpm --filter='./packages/*' -r publish ${{ steps.determine-tag.outputs.publish_tag }}
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
 
-      - name: Create GitHub Release
-        run: npx changelogithub
+      - run: pnpm dlx changelogithub
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
