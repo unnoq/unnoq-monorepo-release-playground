@@ -1,5 +1,17 @@
 # Changelog
 
+## 6.0.0-beta.0
+
+### &nbsp;&nbsp;&nbsp;Breaking Changes
+
+- Beta &nbsp;-&nbsp; by **unnoq** [<samp>(0416d)</samp>](https://github.com/unnoq/unnoq-monorepo-release-playground/commit/0416d71)
+
+### &nbsp;&nbsp;&nbsp;Features
+
+- From github &nbsp;-&nbsp; by **unnoq** [<samp>(c5782)</samp>](https://github.com/unnoq/unnoq-monorepo-release-playground/commit/c578246)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/unnoq/unnoq-monorepo-release-playground/compare/v5.0.1...6.0.0-beta.0)
+
 ## 5.0.1
 
 ### &nbsp;&nbsp;&nbsp;Breaking Changes
