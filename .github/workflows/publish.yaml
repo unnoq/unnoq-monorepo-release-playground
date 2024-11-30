@@ -43,13 +43,28 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - run: pnpm dlx bumpp -r --yes ${{ github.event.inputs.bump }} --preid ${{ github.event.inputs.preid }}
+      - run: pnpm dlx bumpp -r ${{ github.event.inputs.bump }} --yes --preid=${{ github.event.inputs.preid }}
 
       - run: pnpm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: pnpm --filter='./packages/*' -r publish --tag="${{ github.event.inputs.preid || 'latest' }}"
+      - id: package-version
+        uses: martinbeentjes/npm-get-version-action@v1
+
+        # use steps.package-version.outputs.current-version for create
+
+      - id: prerelease-tag
+        run: |
+          VERSION=${{ steps.package-version.outputs.current-version }}
+
+          if [[ $VERSION =~ ^[0-9\.]+(-([0-9A-Za-z-]+).*)?$ ]]; then
+            echo "tag=${BASH_REMATCH[2]}"
+          else
+            echo "tag=unknown"
+          fi
+
+      - run: pnpm --filter='./packages/*' -r publish --tag="${{ steps.prerelease-tag.outputs.tag || 'latest' }}"
 
       - run: pnpm dlx changelogithub
         env:
