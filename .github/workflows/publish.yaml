@@ -19,23 +19,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v4
-
-      - run: pnpm install
-
-      - name: Configure Git User
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Determine Publish Tag
-        id: determine-tag
+      - id: determine-tag
         shell: bash
         run: |
           VERSION="${{ github.event.inputs.version }}"
-          if [[ $VERSION =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z]+(\.[0-9]+)?)?$ ]]; then
+          if [[ $VERSION =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z-]+(\..+)?)?$ ]]; then
             # Check if version contains a pre-release identifier
-            if [[ $VERSION =~ ^[0-9]+\.[0-9]+\.[0-9]+-([a-zA-Z]+)(\.[0-9]+)?$ ]]; then
+            if [[ $VERSION =~ ^[0-9]+\.[0-9]+\.[0-9]+-([0-9A-Za-z-]+)(\..+)?$ ]]; then
               TAG="${BASH_REMATCH[1]}"
               echo "publish_tag=--tag $TAG" >> $GITHUB_OUTPUT
             else
@@ -46,6 +36,15 @@ jobs:
             echo "Invalid version format" >&2
             exit 1
           fi
+
+      - uses: pnpm/action-setup@v4
+
+      - run: pnpm install
+
+      - name: Configure Git User
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - run: pnpm dlx bumpp -r --yes ${{ github.event.inputs.version }}
 
