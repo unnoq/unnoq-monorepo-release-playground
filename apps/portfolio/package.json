@@ -1,7 +1,7 @@
 {
   "name": "@unnoq/portfolio",
   "type": "module",
-  "version": "8.0.0-beta",
+  "version": "4.0.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
