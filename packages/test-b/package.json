@@ -1,7 +1,7 @@
 {
   "name": "@unnoq/test-b",
   "type": "module",
-  "version": "9.0.0",
+  "version": "9.0.0-beta.1",
   "author": {
     "name": "unnoq",
     "email": "contact@unnoq.com",
